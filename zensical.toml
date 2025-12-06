@@ -17,7 +17,7 @@ site_name = "Han's Portfolio"
 # meaningful description of the site content for use by search engines.
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_description
-site_description = "A Portfolio generated from the Zensical template."
+site_description = "A Portfolio Site for Han"
 
 # The site_author attribute. This is used in the HTML head element.
 #
@@ -312,6 +312,7 @@ toggle.name = "Switch to system preference"
 #[[project.extra.social]]
 #icon = "fontawesome/brands/github"
 #link = "https://github.com/user/repo"
+
 
 
 
