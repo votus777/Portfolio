@@ -27,7 +27,7 @@ site_author = "Hansae Cho"
 # The site_url is the canonical URL for your site. When building online
 # documentation you should set this.
 # Read more: https://zensical.org/docs/setup/basics/#site_url
-#site_url = "https://votus777.github.io/Portfolio"
+site_url = "https://votus777.github.io/Portfolio"
 
 # The copyright notice appears in the page footer and can contain an HTML
 # fragment.
@@ -312,6 +312,7 @@ toggle.name = "Switch to system preference"
 #[[project.extra.social]]
 #icon = "fontawesome/brands/github"
 #link = "https://github.com/user/repo"
+
 
 
 
