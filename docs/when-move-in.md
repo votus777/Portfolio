@@ -1,6 +1,6 @@
 
 ---
-icon: lucid/house
+icon: lucide/house
 ---
 
 
