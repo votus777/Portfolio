@@ -1,5 +1,5 @@
 ---
-icon: lucid/square-user-round
+icon: lucide/square-user-round
 ---
 
 
