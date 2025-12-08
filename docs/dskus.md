@@ -1,5 +1,5 @@
 ---
-icon: lucid/earth
+icon: lucide/earth
 ---
 
 # DSKUS Project
