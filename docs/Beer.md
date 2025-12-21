@@ -1,8 +1,9 @@
 ---
 icon: lucide/beer
 --- 
+# Beer 
 
-# 맥주 화학-관능 공동 임베딩 모델 (JointEmbeddingModel)
+## 맥주 화학-관능 공동 임베딩 모델 (JointEmbeddingModel)
 
 ## 핵심 목적
 **화학적 조성 ↔ 관능 특성(taste_, aroma_, palate_) 양방향 변환 가능한 공동 잠재 공간 생성**
@@ -61,7 +62,7 @@ icon: lucide/beer
 
 ## 손실 함수
 
-```python hl_lines="2" title="Loss Function"
+```python hl_lines="1" title="Loss Function"
 
 def compute_joint_loss_beer(x, y, z_x, z_y, x_recon, y_recon, x_from_y, y_from_x,
                             alpha=1.0, beta=2.0, gamma=0.5):
