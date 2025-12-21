@@ -2,10 +2,64 @@
 icon: lucide/beer
 --- 
 
-## Joint Embedding 기반 맥주 화학-관능 양방향 매핑 시스템
+# 맥주 화학-관능 공동 임베딩 모델 (JointEmbeddingModel)
+
+## 핵심 목적
+**화학적 조성 ↔ 관능 특성(taste_, aroma_, palate_) 양방향 변환 가능한 공동 잠재 공간 생성**
+
+### 주요 기능
+1. [x] 화학 데이터 → 관능 특성 예측
+2. [x] 관능 특성 → 필요한 화학 조성 역추론
+3. [x] 공동 잠재 공간에서 상호 해석 가능
+4. [x] 목표 맛 기반 맥주 설계
+
+### 모델 아키텍처
+- **Chemical Encoder**: 화학 데이터 → 잠재 공간 (512dim)
+- **Sensory Encoder**: 관능 데이터 → 잠재 공간 (512dim)
+- **Chemical Decoder**: 잠재 공간 → 화학 데이터 재구성
+- **Sensory Decoder**: 잠재 공간 → 관능 데이터 재구성
+
+### 손실 함수
+1. **재구성 손실**: 입력 복원 정확도
+2. **정렬 손실**: 같은 맥주의 화학/관능 임베딩 거리
+3. **교차 재구성 손실**: 화학↔관능 변환 정확도
 
 
-![joint](https://github.com/user-attachments/assets/491f4c57-510c-44e5-8e21-8d875c6a1281)
+## 데이터셋
+
+| 항목         | 내용                                                                 |
+|--------------|---------------------------------------------------------------------|
+| 데이터 소스  | Schreurs et al. (2024) 논문 연구 데이터                            |
+| 전체 샘플    | 250개 맥주                                                      |
+| 화학 변수    | 230개                                                      |
+| 관능 변수    | 184개                                                    |
+| 메타데이터   | beer_name, brand, Description 등                                    |
+
+
+- 화학변수  
+
+| 카테고리       | 예시                                | 설명                |
+|----------------|-------------------------------------|---------------------|
+| 휘발성 화합물  | ethyl_acetate, ethyl_octanoate      | 과일향, 꽃향 에스터 |
+| 알코올         | ethanol, isoamyl_alcohol            | 알코올 농도         |
+| 산             | lactic_acid, acetic_acid            | 신맛 성분           |
+| 페놀           | phenylethyl_alcohol                 | 향미 화합물         |
+| 기타           | pH, bitterness, protein             | 물리화학적 특성     |
+
+
+- 관능 변수 
+
+| 카테고리      | 개수   | 예시                                     |
+|---------------|--------|------------------------------------------|
+| Aroma (향)    | ~60개  | aroma_fruity, aroma_floral, aroma_hoppy  |
+| Taste (맛)    | ~60개  | taste_sweet, taste_bitter, taste_sour    |
+| Palate (질감) | ~60개  | palate_body, palate_smooth, palate_creamy|
+
+
+## 모델 구조 
+![model](https://github.com/user-attachments/assets/f6e3de62-a596-4ffd-abfe-efd20bfeb490)
+
+
 
 ## 모델 훈련 및 평가
 
@@ -15,12 +69,20 @@ icon: lucide/beer
 | 관능 → 화학 역추론 | 0.7851    | 0.7883    | 0.2149  |
 
 
+## Joint Embedding 시각화
+
+![joint](https://github.com/user-attachments/assets/491f4c57-510c-44e5-8e21-8d875c6a1281)
+
 ## 모델 배포 
  - ONNX   
  PyTorch 모델 → ONNX 변환  
  - 서로 다른 머신러닝 프레임워크(예: PyTorch, TensorFlow) 간에 모델을 쉽게 교환하고 배포할 수 있도록 만든 개방형 표준 포맷  
  - 특정 프레임워크 설치 없이도 여러 환경(클라우드, 엣지 디바이스)에서 빠르게 추론을 수행  
 
+
+## 웹페이지
+
+![web](https://github.com/user-attachments/assets/93690dd9-146a-495a-bcf9-e9874674a352)
 
 ## 예시 시나리오
 
