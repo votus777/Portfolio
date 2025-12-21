@@ -4,9 +4,8 @@ icon: lucide/beer
 
 ## Joint Embedding 기반 맥주 화학-관능 양방향 매핑 시스템
 
-![joint_embedding]([https://user-images.githubusercontent.com/xxxx/xxxx.png](https://private-user-images.githubusercontent.com/51744036/528993829-f1521a21-b22f-4fca-acff-d72e3d77cf2c.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjYzMzk1OTAsIm5iZiI6MTc2NjMzOTI5MCwicGF0aCI6Ii81MTc0NDAzNi81Mjg5OTM4MjktZjE1MjFhMjEtYjIyZi00ZmNhLWFjZmYtZDcyZTNkNzdjZjJjLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTEyMjElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMjIxVDE3NDgxMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTY4YzMzYzI5Njg0Njc3NGU1Y2U4MzdiMjgxNTAzY2Y2NjFlZmMwMGEwMzc2MzkxNGM4NTQ3MzYxMmQwNjc4MGMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.HwHhuVXFWLdTgStOAmZBAqPgWzbx5vr3PH0KRR5NnkI))
 
-
+![joint](https://github.com/user-attachments/assets/491f4c57-510c-44e5-8e21-8d875c6a1281)
 
 ## 모델 훈련 및 평가
 
