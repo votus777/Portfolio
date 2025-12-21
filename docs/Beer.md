@@ -59,6 +59,32 @@ icon: lucide/beer
 ## 모델 구조 
 ![model](https://github.com/user-attachments/assets/f6e3de62-a596-4ffd-abfe-efd20bfeb490)
 
+## 손실 함수
+
+```python hl_lines="2" title="Loss Function"
+
+def compute_joint_loss_beer(x, y, z_x, z_y, x_recon, y_recon, x_from_y, y_from_x,
+                            alpha=1.0, beta=2.0, gamma=0.5):
+    """
+    - 화학 데이터: 이상치 가능성 → Smooth L1
+    - 정렬: 시각화 중요 → Cosine
+    - 교차: 정확한 변환 → MSE
+    """
+    recon_loss_x = nn.SmoothL1Loss()(x_recon, x)
+    recon_loss_y = nn.SmoothL1Loss()(y_recon, y)
+    recon_loss = (recon_loss_x + recon_loss_y) / 2
+    
+    alignment_loss = 1 - F.cosine_similarity(z_x, z_y, dim=1).mean()
+    
+    cross_recon_loss_x = nn.MSELoss()(x_from_y, x)
+    cross_recon_loss_y = nn.MSELoss()(y_from_x, y)
+    cross_recon_loss = (cross_recon_loss_x + cross_recon_loss_y) / 2
+    
+    total_loss = alpha * recon_loss + beta * alignment_loss + gamma * cross_recon_loss
+    
+    return total_loss, recon_loss, alignment_loss, cross_recon_loss
+
+```
 
 
 ## 모델 훈련 및 평가
