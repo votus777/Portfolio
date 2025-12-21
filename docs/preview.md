@@ -1,6 +1,6 @@
 ---
 icon: lucide/user-round
----
+--- 
 
 # A Doer who does things with Data
 
@@ -14,26 +14,9 @@ icon: lucide/user-round
 
 
 ## Work Experience
-
-### Data Science Innovation Lab
-
-### Episci. Inc 
-
-### Cologne Game Lab
-
-
-
-## Project
-
-### 아파트 전월세 계약 현황 예측 대시보드 
-
-### LLM & Gen AI 를 활용한 대화형 협상 시뮬레이터
-
-### 운수종사자 인지적 특성 데이터를 활용한 교통사고 위험 예측
-
-### 차량용 디스플레이 생산 품질 개선 모델 개발
-
-### DSKUS: 국제 개발 원조(ODA) 효용성 최적화
+- Data Science Innovation Lab
+- Episci. Inc 
+- Cologne Game Lab
 
 ## Education
 
@@ -48,6 +31,22 @@ icon: lucide/user-round
 부전공: 미래인문학융합전공   
 2014.03 ~ 2021.08  
 
+
+
+
+## Project
+- Joint Embedding 기반 맥주 화학-관능 양방향 매핑 시스템
+
+- 아파트 전월세 계약 현황 예측 대시보드 
+
+- LLM & Gen AI 를 활용한 대화형 협상 시뮬레이터
+
+- 차량용 디스플레이 생산 품질 개선 모델 개발
+    - LG Aimers 5기 해커톤 본선
+
+- 운수종사자 인지적 특성 데이터를 활용한 교통사고 위험 예측
+    
+- DSKUS: 국제 개발 원조(ODA) 효용성 최적화
 
 
 
