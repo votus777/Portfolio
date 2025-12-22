@@ -3,7 +3,7 @@ icon: lucide/beer
 --- 
 # Beer 
 
-## 맥주 화학-관능 공동 임베딩 모델 (JointEmbeddingModel)
+## 맥주 화학-관능 공동 임베딩 모델 (Joint Embedding Model)
 
 ## 핵심 목적
 **화학적 조성 ↔ 관능 특성(taste_, aroma_, palate_) 양방향 변환 가능한 공동 잠재 공간 생성**
@@ -14,11 +14,11 @@ icon: lucide/beer
 3. [x] 공동 잠재 공간에서 상호 해석 가능
 4. [x] 목표 맛 기반 맥주 설계
 
-### 모델 아키텍처
-- **Chemical Encoder**: 화학 데이터 → 잠재 공간 (512dim)
-- **Sensory Encoder**: 관능 데이터 → 잠재 공간 (512dim)
-- **Chemical Decoder**: 잠재 공간 → 화학 데이터 재구성
-- **Sensory Decoder**: 잠재 공간 → 관능 데이터 재구성
+### 모델 아키텍처 - Dual AutoEncoder
+- **Chemical Encoder**: 화학 데이터 → Latent Space (512dim)
+- **Sensory Encoder**: 관능 데이터 → Latent Space (512dim)
+- **Chemical Decoder**: Latent Space → 화학 데이터 재구성
+- **Sensory Decoder**: Latent Space → 관능 데이터 재구성
 
 ### 손실 함수
 1. **재구성 손실**: 입력 복원 정확도
@@ -30,8 +30,7 @@ icon: lucide/beer
 
 | 항목         | 내용                                                                 |
 |--------------|---------------------------------------------------------------------|
-| 데이터 소스  | Predicting and improving complex beer
-flavor through machine learning (2024)                           |
+| 데이터 소스  | Predicting and improving complex beer flavor through machine learning (2024)                           |
 | 전체 샘플    | 250개 벨기에 맥주                                                      |
 | 화학 변수    | 230개                                                      |
 | 관능 변수    | 184개                                                    |
@@ -152,6 +151,11 @@ def compute_joint_loss_beer(x, y, z_x, z_y, x_recon, y_recon, x_from_y, y_from_x
 | 2   | nan                          | nan        | 0.6706  | palate_horse, taste_solvent, taste_carbonation |
 | 3   | Dorée                        | Chimay     | 0.6645  | taste_acetaldehyde, taste_bread, aroma_coriander|
 
+
+## Limitation
+    - Chemical -> Sensory 변환과 달리 Sensory -> Chemical는 1:1 매칭이 되지 않는 비가역적인 관계  
+    - 현재 학습된 Latent Space는 데이터셋의 분포에 한정됨
+    - 얀 르쿤이 제시한 JEPA(Joint-Embedding Predictive Architecture)로 확장 가능 
 
 
 ## 참고 문헌
