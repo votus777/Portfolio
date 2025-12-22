@@ -30,31 +30,25 @@ icon: lucide/beer
 
 | 항목         | 내용                                                                 |
 |--------------|---------------------------------------------------------------------|
-| 데이터 소스  | Schreurs et al. (2024) 논문 연구 데이터                            |
-| 전체 샘플    | 250개 맥주                                                      |
+| 데이터 소스  | Predicting and improving complex beer
+flavor through machine learning (2024)                           |
+| 전체 샘플    | 250개 벨기에 맥주                                                      |
 | 화학 변수    | 230개                                                      |
 | 관능 변수    | 184개                                                    |
 | 메타데이터   | beer_name, brand, Description 등                                    |
 
 
-- 화학변수  
+| 구분         | 카테고리      | 예시                                        | 설명/개수            |
+|--------------|---------------|---------------------------------------------|----------------------|
+| 화학 변수    | 휘발성 화합물 | ethyl_acetate, ethyl_octanoate              | 과일향, 꽃향 에스터  |
+| 화학 변수    | 알코올        | ethanol, isoamyl_alcohol                    | 알코올 농도          |
+| 화학 변수    | 산            | lactic_acid, acetic_acid                    | 신맛 성분            |
+| 화학 변수    | 페놀          | phenylethyl_alcohol                         | 향미 화합물          |
+| 화학 변수    | 기타          | pH, bitterness, protein                     | 물리화학적 특성      |
+| 관능 변수    | Aroma (향)    | aroma_fruity, aroma_floral, aroma_hoppy     | 후각             |
+| 관능 변수    | Taste (맛)    | taste_sweet, taste_bitter, taste_sour       | 미각              |
+| 관능 변수    | Palate (질감) | palate_body, palate_smooth, palate_creamy   | 목넘김             | 
 
-| 카테고리       | 예시                                | 설명                |
-|----------------|-------------------------------------|---------------------|
-| 휘발성 화합물  | ethyl_acetate, ethyl_octanoate      | 과일향, 꽃향 에스터 |
-| 알코올         | ethanol, isoamyl_alcohol            | 알코올 농도         |
-| 산             | lactic_acid, acetic_acid            | 신맛 성분           |
-| 페놀           | phenylethyl_alcohol                 | 향미 화합물         |
-| 기타           | pH, bitterness, protein             | 물리화학적 특성     |
-
-
-- 관능 변수 
-
-| 카테고리      | 개수   | 예시                                     |
-|---------------|--------|------------------------------------------|
-| Aroma (향)    | ~60개  | aroma_fruity, aroma_floral, aroma_hoppy  |
-| Taste (맛)    | ~60개  | taste_sweet, taste_bitter, taste_sour    |
-| Palate (질감) | ~60개  | palate_body, palate_smooth, palate_creamy|
 
 
 ## 모델 구조 
@@ -106,6 +100,11 @@ def compute_joint_loss_beer(x, y, z_x, z_y, x_recon, y_recon, x_from_y, y_from_x
  - 서로 다른 머신러닝 프레임워크(예: PyTorch, TensorFlow) 간에 모델을 쉽게 교환하고 배포할 수 있도록 만든 개방형 표준 포맷  
  - 특정 프레임워크 설치 없이도 여러 환경(클라우드, 엣지 디바이스)에서 빠르게 추론을 수행  
 
+- 파일 크기 비교:  
+   PyTorch (.pth): 15.43 MB  
+   ONNX (.onnx):   7.64 MB  
+   감소율: 50.5%  
+
 
 ## 웹페이지
 
@@ -144,6 +143,8 @@ def compute_joint_loss_beer(x, y, z_x, z_y, x_recon, y_recon, x_from_y, y_from_x
 ---
 
 ### 3. 유사한 실제 맥주 찾기 (Validation)
+
+> 원본데이터셋의 Beer_id는 EAN(European Article Number)를 의미
 
 | 순위 | 맥주명                      | 브랜드       | 유사도   | 대표 특성                                      |
 |-----|------------------------------|------------|---------|------------------------------------------------|

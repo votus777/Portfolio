@@ -14,9 +14,9 @@ icon: lucide/user-round
 
 
 ## Work Experience
-- Data Science Innovation Lab
+- Data Science Innovation Lab (DSIL)
 - Episci. Inc 
-- Cologne Game Lab
+- Cologne Game Lab (CGL)
 
 ## Education
 
@@ -38,16 +38,19 @@ icon: lucide/user-round
 - Joint Embedding 기반 맥주 화학-관능 양방향 매핑 시스템
 
 - 아파트 전월세 계약 현황 예측 대시보드 
+    - Cinderella Glass Slipper Effect
 
 - LLM & Gen AI 를 활용한 대화형 협상 시뮬레이터
+    - Vibe Coding으로 5일 만에 빌드 및 배포 
 
 - 차량용 디스플레이 생산 품질 개선 모델 개발
     - LG Aimers 5기 해커톤 본선
+    - Public 195등 -> Private 26등 
 
 - 운수종사자 인지적 특성 데이터를 활용한 교통사고 위험 예측
     
 - DSKUS: 국제 개발 원조(ODA) 효용성 최적화
-
+    - Seoul - Chicago 해외 협력 프로젝트 
 
 
 ## Publications  
