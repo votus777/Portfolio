@@ -120,8 +120,8 @@ AI 플레이버 큐레이터 시스템은 사용자의 자연어 요청에서 �
   - **최종 가드레일(Bedrock Guardrails)**
     - 모든 에이전트 결과물은 최종 출력 전 안전성 검사 레이어를 통과
 
-
-flowchart TD
+```mermaid
+  flowchart TD
     subgraph Cognitive ["Step 1: 의도 및 감성 분석 (Cognitive Stage)"]
         A[자연어 입력] --> B{SEP 추출}
         B -->|S/E/P 분리| C[시맨틱 속성 분해]
@@ -152,3 +152,4 @@ flowchart TD
     style Cognitive fill:#fff4f4,stroke:#ffb3b3
     style Standard fill:#f4fff4,stroke:#b3ffb3
     style Physical fill:#f4f4ff,stroke:#b3b3ff
+```
