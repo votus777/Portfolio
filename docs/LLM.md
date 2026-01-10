@@ -119,3 +119,36 @@ AI 플레이버 큐레이터 시스템은 사용자의 자연어 요청에서 �
     - 성분이 부족할 경우, 조주 마스터가 사용자에게 예시처럼 "현재 스모키한 성분이 부족한데, 대신 오크향을 강화할까요?" 등 대안 제안 및 상호작용 진행
   - **최종 가드레일(Bedrock Guardrails)**
     - 모든 에이전트 결과물은 최종 출력 전 안전성 검사 레이어를 통과
+
+
+flowchart TD
+    subgraph Cognitive ["Step 1: 의도 및 감성 분석 (Cognitive Stage)"]
+        A[자연어 입력] --> B{SEP 추출}
+        B -->|S/E/P 분리| C[시맨틱 속성 분해]
+        C -->|잠재 속성| D[Context Buffer]
+    end
+
+    subgraph Standard ["Step 2: 맛 규격화 (Standardization)"]
+        D --> E[Flavor Wheel 매핑]
+        E --> F[수치 규격화]
+        F -->|JSON Profile| G[맛 벡터 생성]
+    end
+
+    subgraph Physical ["Step 3: 물리적 구현 (Mapping & Action)"]
+        G --> H[AOSS 검색]
+        H -->|12만 종 DB| I[화학 성분 투영]
+        I --> J[에이전트 조율/합성]
+    end
+
+    subgraph Safety ["Step 4: 검증 및 출력 (Safety)"]
+        J --> K[Bedrock Guardrails]
+        K --> L([최종 레시피 출력])
+    end
+
+    %% Styles
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style L fill:#bbf,stroke:#333,stroke-width:2px
+    style K fill:#ff9999,stroke:#333
+    style Cognitive fill:#fff4f4,stroke:#ffb3b3
+    style Standard fill:#f4fff4,stroke:#b3ffb3
+    style Physical fill:#f4f4ff,stroke:#b3b3ff
