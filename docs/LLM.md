@@ -124,49 +124,45 @@ AI 플레이버 큐레이터 시스템은 사용자의 자연어 요청에서 �
   sequenceDiagram
     autonumber
     actor User as 사용자
-    participant Main as 메인 오케스트레이터<br/>(Bedrock Agent)
-    participant SA as 감성 분석가<br/>(Sensory Analyst)
-    participant FA as 향미 설계사<br/>(Flavor Architect)
-    participant MC as 분자 조합가<br/>(Molecular Chemist)
-    participant MA as 조주 마스터<br/>(Mixologist Agent)
+    participant Main as 메인 오케스트레이터
+    participant SA as 감성 분석가 (SA)
+    participant FA as 향미 설계사 (FA)
+    participant MC as 분자 조합가 (MC)
+    participant KB as Knowledge Base (RAG)<br/>[전문서적/데이터셋]
     participant DB as AOSS / 12만종 DB
 
     User->>Main: 자연어 입력 ("퇴근 후 차분한 위스키")
     
     rect rgb(240, 240, 240)
-        Note over Main, SA: Step 1: 의도 및 감성 분석
+        Note over SA, KB: Step 1: 의도 및 감성 분석 (지식 접지)
         Main->>SA: 발화 데이터 전달
+        SA->>KB: 감정-관능 매핑 데이터 조회 (GoEmotions 등)
+        KB-->>SA: "차분함"에 매핑된 관능 속성 가이드
         SA->>SA: SEP 추출 및 시맨틱 속성 분해
         SA-->>Main: SEP 데이터 + 시맨틱 벡터 반환
     end
 
     rect rgb(230, 245, 230)
-        Note over Main, FA: Step 2: 맛 규격화
+        Note over FA, KB: Step 2: 맛 규격화 (표준 참조)
         Main->>FA: 시맨틱 벡터 전달
-        FA->>FA: Flavor Wheel / WSET 매핑
-        FA->>FA: 0.0 ~ 1.0 강도(Intensity) 수치화
-        FA-->>Main: 표준 맛 프로필 (JSON) 반환
+        FA->>KB: WSET/Flavor Wheel 표준 규격 조회
+        KB-->>FA: 표준 어휘(Lexicon) 및 강도 기준 산출 근거
+        FA->>FA: 표준 맛 프로필 (JSON) 생성
+        FA-->>Main: 표준 맛 프로필 반환
     end
 
     rect rgb(230, 230, 255)
-        Note over Main, DB: Step 3: 화학 성분 매핑
+        Note over MC, DB: Step 3: 화학 성분 매핑 (DB 검색)
         Main->>MC: 표준 맛 프로필 전달
+        MC->>KB: 분자간 시너지/마스킹 효과 논문 참조
+        KB-->>MC: 성분 배합 시 주의사항 및 추천 조합
         MC->>DB: 벡터 유사도 검색 (Similarity Search)
         DB-->>MC: 최적 화학 성분 후보군 (SMILES)
-        MC-->>Main: 후보 성분 및 시너니 분석 결과 반환
+        MC-->>Main: 후보 성분 및 시너지 분석 결과 반환
     end
 
     rect rgb(255, 245, 230)
-        Note over Main, MA: Step 4: 레시피 합성 및 조율
-        Main->>MA: 최종 후보 성분 전달
-        MA->>MA: 레시피 최적화 합성
-        
-        alt 제조 불가 또는 성분 부족
-            MA-->>User: 대안 제시 (예: "스모키함 대신 오크향 강화할까요?")
-            User-->>MA: 피드백/승인
-        end
-        
-        MA->>MA: 가드레일(Guardrails) 최종 검증
-        MA-->>User: 최종 맞춤형 레시피 출력
+        Note over Main, User: Step 4: 레시피 합성 및 조율
+        Main->>User: 최종 맞춤형 레시피 및 조주 가이드 출력
     end
 ```
