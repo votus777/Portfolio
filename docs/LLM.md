@@ -121,35 +121,52 @@ AI 플레이버 큐레이터 시스템은 사용자의 자연어 요청에서 �
     - 모든 에이전트 결과물은 최종 출력 전 안전성 검사 레이어를 통과
 
 ```mermaid
-  flowchart TD
-    subgraph Cognitive ["Step 1: 의도 및 감성 분석 (Cognitive Stage)"]
-        A[자연어 입력] --> B{SEP 추출}
-        B -->|S/E/P 분리| C[시맨틱 속성 분해]
-        C -->|잠재 속성| D[Context Buffer]
+  sequenceDiagram
+    autonumber
+    actor User as 사용자
+    participant Main as 메인 오케스트레이터<br/>(Bedrock Agent)
+    participant SA as 감성 분석가<br/>(Sensory Analyst)
+    participant FA as 향미 설계사<br/>(Flavor Architect)
+    participant MC as 분자 조합가<br/>(Molecular Chemist)
+    participant MA as 조주 마스터<br/>(Mixologist Agent)
+    participant DB as AOSS / 12만종 DB
+
+    User->>Main: 자연어 입력 ("퇴근 후 차분한 위스키")
+    
+    rect rgb(240, 240, 240)
+        Note over Main, SA: Step 1: 의도 및 감성 분석
+        Main->>SA: 발화 데이터 전달
+        SA->>SA: SEP 추출 및 시맨틱 속성 분해
+        SA-->>Main: SEP 데이터 + 시맨틱 벡터 반환
     end
 
-    subgraph Standard ["Step 2: 맛 규격화 (Standardization)"]
-        D --> E[Flavor Wheel 매핑]
-        E --> F[수치 규격화]
-        F -->|JSON Profile| G[맛 벡터 생성]
+    rect rgb(230, 245, 230)
+        Note over Main, FA: Step 2: 맛 규격화
+        Main->>FA: 시맨틱 벡터 전달
+        FA->>FA: Flavor Wheel / WSET 매핑
+        FA->>FA: 0.0 ~ 1.0 강도(Intensity) 수치화
+        FA-->>Main: 표준 맛 프로필 (JSON) 반환
     end
 
-    subgraph Physical ["Step 3: 물리적 구현 (Mapping & Action)"]
-        G --> H[AOSS 검색]
-        H -->|12만 종 DB| I[화학 성분 투영]
-        I --> J[에이전트 조율/합성]
+    rect rgb(230, 230, 255)
+        Note over Main, DB: Step 3: 화학 성분 매핑
+        Main->>MC: 표준 맛 프로필 전달
+        MC->>DB: 벡터 유사도 검색 (Similarity Search)
+        DB-->>MC: 최적 화학 성분 후보군 (SMILES)
+        MC-->>Main: 후보 성분 및 시너니 분석 결과 반환
     end
 
-    subgraph Safety ["Step 4: 검증 및 출력 (Safety)"]
-        J --> K[Bedrock Guardrails]
-        K --> L([최종 레시피 출력])
+    rect rgb(255, 245, 230)
+        Note over Main, MA: Step 4: 레시피 합성 및 조율
+        Main->>MA: 최종 후보 성분 전달
+        MA->>MA: 레시피 최적화 합성
+        
+        alt 제조 불가 또는 성분 부족
+            MA-->>User: 대안 제시 (예: "스모키함 대신 오크향 강화할까요?")
+            User-->>MA: 피드백/승인
+        end
+        
+        MA->>MA: 가드레일(Guardrails) 최종 검증
+        MA-->>User: 최종 맞춤형 레시피 출력
     end
-
-    %% Styles
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style L fill:#bbf,stroke:#333,stroke-width:2px
-    style K fill:#ff9999,stroke:#333
-    style Cognitive fill:#fff4f4,stroke:#ffb3b3
-    style Standard fill:#f4fff4,stroke:#b3ffb3
-    style Physical fill:#f4f4ff,stroke:#b3b3ff
 ```
