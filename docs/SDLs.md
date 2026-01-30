@@ -38,6 +38,14 @@ ROS2 Bridge로 **Sim-to-Real** 전이 지원
 MoveIt2 등 ROS2 제어 명령을 가상·실제 로봇에 동일 적용  
 Digital Twin에서 검증한 로직 그대로 현실 이식 가능  
 
+### IssacSim 
+
+<img width="1080" height="400" alt="Image" src="https://github.com/user-attachments/assets/5ef7465f-5e91-42e9-990a-90e50dc44810" />  
+
+  
+
+> ROS2 (Robot Operating System 2) : 로봇 애플리케이션 개발을 위한 차세대 오픈 소스 프레임워크. 로봇 개발의 표준 플랫폼
+
 
 **1. 센싱 시스템 (Sensing System)**  
 - **화학 센서:**  
@@ -67,6 +75,8 @@ Digital Twin에서 검증한 로직 그대로 현실 이식 가능
 ### 하드웨어 구매 및 예산 측정 
  - 나라장터의 입찰공고, 낙찰정보, 발주계획을 통해 타 연구실 및 실험실의 하드웨어 견적을 살펴볼 수 있음 
  - 국가연구시설장비진흥센터(ZEUS)에서 실제 연구실에 어떤 장비가 도입되어 있는지 검색할 수 있음
+
+- Franka Emika Panda Research Robot | 25,300,000₩
 
 ---
 
@@ -114,7 +124,6 @@ Dataset 전체를 효율적으로 관리·연결하고, LLM·AI가 활용하기 
 ## 기술 검토 체크리스트
 
 - [ ] **ROS2 버전**: Isaac Sim 2023.x 이상 → ROS2 Humble 호환성이 가장 우수
-- [ ] **통신 레이턴시 최적화**: DDS 세팅 최적화
 - [ ] **데이터 파이프라인**: 센서 Raw Data → 인메모리 DB(Redis 등) → 실시간 DB 적재 구조 권장
 - [ ] **실험 Fail 로그→AI 해석 파이프라인**: LLM·AI가 해석 가능한 자연어 로그 자동 변환
 
@@ -148,4 +157,5 @@ https://www.selectscience.net/product/ot-2
 sample Design
 
 youtube.com/watch?time_continue=176&v=oq4Xbr3FDD0&embeds_referring_euri=https%3A%2F%2Fwww.mt.com%2F&embeds_referring_origin=https%3A%2F%2Fwww.mt.com&source_ve_path=MTM5MTE3LDEzOTExNywxMzkxMTcsMjM4NTE
+
 
