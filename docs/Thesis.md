@@ -16,23 +16,27 @@ icon: lucide/book-open-check
 5. [x] AI 성격 분류 예측 모델링 (Few-Shot Learning 시도)
 
 ### 시스템 아키텍처 - Autonomous AI System
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/2d860159-f46b-471c-8713-f3e23350386f" alt="system_structure" width="500"/>
+</div>
+
+<p align="center">
+  <i>FAtiMA-Toolkit과 DST 게임 엔진 간의 HTTP 통신 및 Behavior Tree 구조</i>
+</p>
+
 - **FAtiMA-Toolkit**: AI의 감정 상태 및 의사결정 프로세스 엔진
 - **Behavior Tree (BT)**: 성격별 우선순위에 따른 행동 제어 (Sequence, Selector, Loop)
 - **Speech System**: Microsoft Azure ASR/TTS + KoNLPy 기반 실시간 음성 상호작용
 - **HRI Mod**: 게임 내 상태(State) 및 유저 행동 데이터 실시간 ETL
 
 
-### 📺 관련 영상  
+### 실험 및 시스템 시연 영상  
 <div align="center">
   <a href="https://youtu.be/eJQ-J4fJ_uM">
     <img src="https://img.youtube.com/vi/eJQ-J4fJ_uM/0.jpg" alt="관련 영상 썸네일"/>
   </a>
 </div>
-<p align="center"><i>실험 및 시스템 시연 영상</i></p>
-
-
-### 분석 방법론: Shannon's Entropy
-인간의 이동 경로를 그리드(Grid)로 나누어 방문 빈도를 확률로 계산하고, 행동의 복잡도를 정량화
 
 
 ## 데이터셋
@@ -55,13 +59,6 @@ icon: lucide/book-open-check
 
 
 ## 모델 구조 (AI Personality System)
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/2d860159-f46b-471c-8713-f3e23350386f" alt="system_structure" width="500"/>
-</div>
-
-<p align="center">
-  <i>FAtiMA-Toolkit과 DST 게임 엔진 간의 HTTP 통신 및 Behavior Tree 구조</i>
-</p>
 
 
 ## 주요 연구 결과
