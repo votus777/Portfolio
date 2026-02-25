@@ -44,10 +44,22 @@ Copyright &copy; 2025 Hansae Cho
 # can be defined using TOML syntax.
 #
 # Read more: https://zensical.org/docs/setup/navigation/
-# nav = [
-#   { "Get started" = "index.md" },
-#   { "Markdown in 5min" = "markdown.md" },
-# ]
+nav = [
+    { "About" = [
+        { "Resume" = "docs/Resume.md" }
+    ]},
+    { "Projects" = [
+        { "Resume1" = "docs/Beer.md" },
+        { "Resume2" = "docs/LLM.md" },
+        { "Resume3" = "docs/SDLs.md" },
+        { "Resume4" = "docs/when-move-in.md" },
+        
+    ]},
+    { "Thesis" = [
+        { "Resume5" = "docs/Thesis.md" },
+        { "Resume6" = "docs/Bilingual.md" }
+    ]}
+]
 
 # With the "extra_css" option you can add your own CSS styling to customize
 # your Zensical project according to your needs. You can add any number of
@@ -315,6 +327,7 @@ font.text = "Noto Sans KR"
 #[[project.extra.social]]
 #icon = "fontawesome/brands/github"
 #link = "https://github.com/user/repo"
+
 
 
 
