@@ -57,7 +57,9 @@ def calculate_entropy(probabilities):
 
 
 ## 모델 구조 (AI Personality System)
-<img src="https://github.com/user-attachments/assets/2d860159-f46b-471c-8713-f3e23350386f" alt="system_structure" width="500"/>
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/2d860159-f46b-471c-8713-f3e23350386f" alt="system_structure" width="500"/>
+</div>
 
 
 > FAtiMA-Toolkit과 DST 게임 엔진 간의 HTTP 통신 및 Behavior Tree 구조
@@ -74,8 +76,9 @@ def calculate_entropy(probabilities):
 | RF + SMOTE   | 0.4500   | 0.4081  | 데이터 부족(N=36)으로 인한 낮은 일반화 성능 |
 
 ## 데이터 시각화 (Heatmap & Analysis)
-
-![heatmap](https://github.com/user-attachments/assets/4d9556d0-5592-4149-b99a-4cfb60165e20)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/4d9556d0-5592-4149-b99a-4cfb60165e20" alt="heatmap" width="500"/>
+</div>
 > 좌: 정적인 이동 패턴(Low Entropy) / 우: 능동적/복잡한 이동 패턴(High Entropy)
 
 ## Limitation
