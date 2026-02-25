@@ -90,7 +90,7 @@ ___
 ## 📝 Publications
 
 - **Exploring Factors Influence Human Behavior of AI Personality in a Virtual Collaborative Environment**
-  - *Master's Thesis, Hanyang University (2023)*
+*Master's Thesis, Hanyang University (2023)*
 - **Cognitive Shifts in Bilingual Speakers Affect Speech Interactions with Artificial Agents**
   - *International Journal of Human–Computer Interaction (IJHCI), 2023*
   - **IF: 4.7 / Acceptance Rate: 27%**
