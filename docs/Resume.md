@@ -2,9 +2,8 @@
 icon: lucide/user-round
 --- 
 
-# A Doer who does things with Data
+# A Doer who does things with Data 
 > 데이터 기반 AI 서비스의 시작과 끝을 설계하는 데이터 프로덕트 엔지니어
----
 
 ## 🚀 5가지 핵심 역량
 | 주체성 | 빌더 마인드셋 | 조력자형 | 호기심·학습 탄력성 | 불확실성 내성 |

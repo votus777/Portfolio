@@ -1,11 +1,17 @@
 ---
 icon: lucide/book-open-check
---- 
+---
+
+## **TL;DT:**  
+> 인간-AI 협업 디자인에서 ‘AI의 근접성(Proximity)’은 인간 행동의 무작위성(Randomness)을 낮추는 요인임을 실험적 데이터로 입증.  
+> 가상 공간에서 AI가 유저와 더 가까이 있을수록 인간의 이동 경로가 반복적이고 예측 가능하게 구조화되며(엔트로피 감소), 이는 협동 파트너로서 AI의 동선에 맞춰 인간 행동이 동기화되는 현상에서 비롯되는 것으로 해석.  
+
+
 # Thesis 
 
 ## 가상 협업 환경에서의 AI 성격이 인간 행동에 미치는 영향 탐색 (Exploring Factors Influencing Human Behavior of AI Personality)
 
-## 핵심 목적
+## 핵심 목적  
 **가상 협업 환경(DST)에서 AI 에이전트의 성격(Behavioral Personality) 변화가 인간의 행동 패턴 및 인지적 반응에 미치는 영향을 정량적으로 분석**
 
 ### 주요 기능
@@ -20,7 +26,6 @@ icon: lucide/book-open-check
 <div align="center">
   <img src="https://github.com/user-attachments/assets/2d860159-f46b-471c-8713-f3e23350386f" alt="system_structure" width="500"/>
 </div>
-
 <p align="center">
   <i>FAtiMA-Toolkit과 DST 게임 엔진 간의 HTTP 통신 및 Behavior Tree 구조</i>
 </p>
@@ -63,23 +68,20 @@ icon: lucide/book-open-check
 
 ## 주요 연구 결과
 
-- **가상 협업 환경에서의 AI Proximity에 따른 인간 행동 엔트로피 분석**
+- **가상 협업 환경에서 AI Proximity가 인간 행동 엔트로피에 미치는 영향**
     - **측정 지표**
-      - *Proximity (근접도)*: 실험 중 AI 에이전트와 유저 간의 물리적 거리의 평균값
-      - *Shannon’s Entropy (행동 엔트로피)*: 유저의 이동 경로를 그리드(Grid) 단위로 나누어 각 영역의 방문 빈도를 확률 분포로 변환, 행동의 무작위성(Randomness)을 정량화
+      - *Proximity(근접도)*: AI와 유저 간 물리적 거리의 평균값
+      - *Shannon's Entropy(행동 엔트로피)*: 유저의 이동 경로를 영역별 방문 확률 분포로 환산, 무작위성 정량화
     - **분석 방법**
-      - 실시간 행동 로그(X, Z 좌표) 데이터를 기반으로 한 시공간 궤적 분석(Spatio-temporal Trajectory Analysis)
-
-  - **핵심 발견 및 해석**
-    - *결과*
-      - AI와 유저 간의 거리가 가까울수록 인간의 이동 패턴 엔트로피가 낮아지는 유의미한 음의 상관관계($r = -0.5024$) 확인
-    - *기술적 해석*
-      - **행동의 구조화(Behavioral Structuring):** 유저가 AI를 단순 객체가 아닌 협업 파트너로 인식할 때 AI의 동선에 맞춰 자신의 이동 경로를 최적화하거나 동기화(Social Synchronization)하는 경향이 나타남
-      - **예측 가능성 증대:** 높은 근접도는 인간 행동의 불확실성을 감소시키고, 이는 인간-AI 협업 시스템에서 인간 행동의 예측 가능성(Predictability)을 높이는 중요한 요인으로 작용함
-    - *데이터 시각화 인사이트*
-      - **Low Entropy (좌측 이미지군):** 특정 목표(예: AI와의 협동, 베이스캠프 중심 활동)를 중심으로 안정적이고 반복적인 경로 형성
-      - **High Entropy (우측 이미지군):** AI와의 상호작용이 적을 때 탐색 중심의 무작위적이고 복잡한 이동 패턴이 나타남
-
+      - 실시간 행동 로그(X, Z 좌표) 기반 시공간 궤적 분석(Spatio-temporal Trajectory Analysis)
+    - **주요 결과**
+      - AI와 유저 간 거리가 가까울수록 인간의 이동 경로 엔트로피는 유의미하게 감소(음의 상관관계, $r = -0.5024$)
+    - **해석**
+      - **행동 구조화(Behavioral Structuring)**: 유저가 AI를 협업 파트너로 인식하면, AI 동선에 동기화 또는 경로 최적화 경향 강화
+      - **예측 가능성의 증대**: 근접도가 높을수록 행동의 불확실성이 줄고, 예측 가능성이 커짐
+    - **시각적 인사이트**
+      - **Low Entropy (좌)**: 목표 중심, 반복적·안정적 경로 (Ex. AI 협력, 베이스캠프 위주 활동)
+      - **High Entropy (우)**: 탐색 위주, 임의·복잡한 이동 패턴, AI와 상호작용 적을 때 두드러짐
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/4d9556d0-5592-4149-b99a-4cfb60165e20" alt="heatmap" width="500"/>
@@ -87,9 +89,9 @@ icon: lucide/book-open-check
 <p align="center">좌: 정적인 이동 패턴(Low Entropy) / 우: 능동적·복잡한 이동 패턴(High Entropy)</p>
 
 ## Limitation
-- **표본 크기:** 면대면 실험의 한계로 인한 샘플 수 부족 (N=36).
-- **AI 자연스러움:** 룰 기반 Behavior Tree의 한계로 인해 인간 수준의 유연한 상호작용 부족.
-- **향후 과제:** 강화학습(RL) 기반 에이전트 및 LLM(Large Language Model) 연동 대화 시스템 도입 필요.
+- **표본 크기:** 면대면 실험 한계로 인한 샘플 수 부족 (N=36).
+- **AI 자연스러움:** 룰 기반 Behavior Tree 한계로 인간-수준 자연스러운 상호작용 미흡.
+- **향후 과제:** 강화학습(RL) 및 LLM(Large Language Model) 연계 AI 대화 시스템 연구 필요.
 
-## 참고 문헌
+## 참고 문헌  
 > Cho, Han Sae. "Exploring factors that Influence Human Behavior of AI Personality in Virtual Collaborative Environment." Master's Thesis, Hanyang University (2023).
