@@ -49,15 +49,15 @@ nav = [
         { "A Doer who does things with Data" = "Resume.md" }
     ]},
     { "Projects" = [
-        { "맥주 화학-관능 공동 임베딩 모델" = "docs/Beer.md" },
-        { "AI 플레이버 큐레이터: 맞춤 향미 경험 추천 파이프라인" = "docs/LLM.md" },
-        { "로보틱스 기반 자동 디스펜싱 및 조합 시스템 설계" = "docs/SDLs.md" },
-        { "when-move-in" = "docs/when-move-in.md" },
+        { "맥주 화학-관능 공동 임베딩 모델" = "Beer.md" },
+        { "AI 플레이버 큐레이터: 맞춤 향미 경험 추천 파이프라인" = "LLM.md" },
+        { "로보틱스 기반 자동 디스펜싱 및 조합 시스템 설계" = "SDLs.md" },
+        { "when-move-in" = "when-move-in.md" },
         
     ]},
     { "Thesis" = [
-        { "Master Thesis" = "docs/Thesis.md" },
-        { "Cognitive Shifts in Bilingual Speakers" = "docs/Bilingual.md" }
+        { "Master Thesis" = "Thesis.md" },
+        { "Cognitive Shifts in Bilingual Speakers" = "Bilingual.md" }
     ]}
 ]
 
@@ -327,6 +327,7 @@ font.text = "Noto Sans KR"
 #[[project.extra.social]]
 #icon = "fontawesome/brands/github"
 #link = "https://github.com/user/repo"
+
 
 
 
