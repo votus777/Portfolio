@@ -46,7 +46,7 @@ Copyright &copy; 2025 Hansae Cho
 # Read more: https://zensical.org/docs/setup/navigation/
 nav = [
     { "About" = [
-        { "A Doer who does things with Data" = "docs/Resume.md" }
+        { "A Doer who does things with Data" = "Resume.md" }
     ]},
     { "Projects" = [
         { "맥주 화학-관능 공동 임베딩 모델" = "docs/Beer.md" },
@@ -327,6 +327,7 @@ font.text = "Noto Sans KR"
 #[[project.extra.social]]
 #icon = "fontawesome/brands/github"
 #link = "https://github.com/user/repo"
+
 
 
 
