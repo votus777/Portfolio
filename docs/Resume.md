@@ -98,6 +98,6 @@ ___
 ---
 
 ## 📞 Contact & Links
-- **Portfolio:** [Link to Portfolio Site]
-- **GitHub:** [Link to GitHub]
-- **Email:** [Your Email Address]
+- **GitHub:** [https://github.com/votus777]
+- **Email:** [chohansae@gmail.com]
+
