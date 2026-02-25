@@ -21,20 +21,18 @@ icon: lucide/book-open-check
 - **Speech System**: Microsoft Azure ASR/TTS + KoNLPy 기반 실시간 음성 상호작용
 - **HRI Mod**: 게임 내 상태(State) 및 유저 행동 데이터 실시간 ETL
 
+
+### 📺 관련 영상  
+<div align="center">
+  <a href="https://youtu.be/eJQ-J4fJ_uM">
+    <img src="https://img.youtube.com/vi/eJQ-J4fJ_uM/0.jpg" alt="관련 영상 썸네일"/>
+  </a>
+</div>
+<p align="center"><i>실험 및 시스템 시연 영상</i></p>
+
+
 ### 분석 방법론: Shannon's Entropy
-인간의 이동 경로를 그리드(Grid)로 나누어 방문 빈도를 확률로 계산하고, 행동의 복잡도를 정량화함.
-
-```python title="Shannon's Entropy Calculation"
-import numpy as np
-
-def calculate_entropy(probabilities):
-    """
-    행동 패턴의 복잡도(무작위성)를 산출
-    """
-    # 0인 확률값 제외 (log 계산 불가)
-    probabilities = probabilities[probabilities > 0]
-    return -np.sum(probabilities * np.log2(probabilities))
-```
+인간의 이동 경로를 그리드(Grid)로 나누어 방문 빈도를 확률로 계산하고, 행동의 복잡도를 정량화
 
 
 ## 데이터셋
@@ -61,25 +59,35 @@ def calculate_entropy(probabilities):
   <img src="https://github.com/user-attachments/assets/2d860159-f46b-471c-8713-f3e23350386f" alt="system_structure" width="500"/>
 </div>
 
+<p align="center">
+  <i>FAtiMA-Toolkit과 DST 게임 엔진 간의 HTTP 통신 및 Behavior Tree 구조</i>
+</p>
 
-> FAtiMA-Toolkit과 DST 게임 엔진 간의 HTTP 통신 및 Behavior Tree 구조
 
 ## 주요 연구 결과
 
-### 1. AI와의 거리와 인간 행동 엔트로피의 상관관계
-- **발견:** AI와 인간의 거리(Proximity)가 가까울수록, 인간의 이동 패턴 엔트로피가 낮아짐 (행동이 덜 무작위적이고 안정적임).
-- **상관계수:** $r = -0.5024$ (유의미한 음의 상관관계)
+- **가상 협업 환경에서의 AI Proximity에 따른 인간 행동 엔트로피 분석**
+    - **측정 지표**
+      - *Proximity (근접도)*: 실험 중 AI 에이전트와 유저 간의 물리적 거리의 평균값
+      - *Shannon’s Entropy (행동 엔트로피)*: 유저의 이동 경로를 그리드(Grid) 단위로 나누어 각 영역의 방문 빈도를 확률 분포로 변환, 행동의 무작위성(Randomness)을 정량화
+    - **분석 방법**
+      - 실시간 행동 로그(X, Z 좌표) 데이터를 기반으로 한 시공간 궤적 분석(Spatio-temporal Trajectory Analysis)
 
-### 2. AI 성격 분류 모델 성과
-| 모델         | Accuracy | AUC     | 비고                                      |
-|--------------|----------|---------|-------------------------------------------|
-| RF + SMOTE   | 0.4500   | 0.4081  | 데이터 부족(N=36)으로 인한 낮은 일반화 성능 |
+  - **핵심 발견 및 해석**
+    - *결과*
+      - AI와 유저 간의 거리가 가까울수록 인간의 이동 패턴 엔트로피가 낮아지는 유의미한 음의 상관관계($r = -0.5024$) 확인
+    - *기술적 해석*
+      - **행동의 구조화(Behavioral Structuring):** 유저가 AI를 단순 객체가 아닌 협업 파트너로 인식할 때 AI의 동선에 맞춰 자신의 이동 경로를 최적화하거나 동기화(Social Synchronization)하는 경향이 나타남
+      - **예측 가능성 증대:** 높은 근접도는 인간 행동의 불확실성을 감소시키고, 이는 인간-AI 협업 시스템에서 인간 행동의 예측 가능성(Predictability)을 높이는 중요한 요인으로 작용함
+    - *데이터 시각화 인사이트*
+      - **Low Entropy (좌측 이미지군):** 특정 목표(예: AI와의 협동, 베이스캠프 중심 활동)를 중심으로 안정적이고 반복적인 경로 형성
+      - **High Entropy (우측 이미지군):** AI와의 상호작용이 적을 때 탐색 중심의 무작위적이고 복잡한 이동 패턴이 나타남
 
-## 데이터 시각화 (Heatmap & Analysis)
+
 <div align="center">
   <img src="https://github.com/user-attachments/assets/4d9556d0-5592-4149-b99a-4cfb60165e20" alt="heatmap" width="500"/>
 </div>
-> 좌: 정적인 이동 패턴(Low Entropy) / 우: 능동적/복잡한 이동 패턴(High Entropy)
+<p align="center">좌: 정적인 이동 패턴(Low Entropy) / 우: 능동적·복잡한 이동 패턴(High Entropy)</p>
 
 ## Limitation
 - **표본 크기:** 면대면 실험의 한계로 인한 샘플 수 부족 (N=36).

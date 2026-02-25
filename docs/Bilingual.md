@@ -1,9 +1,13 @@
 ---
 icon: lucide/languages
---- 
+---
 # Bilingual AI Interaction
 
 ## 이중언어 사용자의 인지 변화가 AI 에이전트와의 음성 상호작용에 미치는 영향 (Cognitive Shifts in Bilingual Speakers)
+
+## **TL;DT:**  
+> 이중언어 화자는 사용하는 언어(한국어/영어)에 따라 인지 패러다임이 변화하며, 이는 AI 에이전트와의 음성 상호작용(발화 패턴, 감성, 인지 평가)에 직접적 영향을 미침.   
+> 같은 AI라도 유저 배경(단일/이중언어)에 따라 응답 및 행동이 달라진다는 사실을 실험적 데이터 및 NLP/감성분석 기반으로 입증.
 
 ## 핵심 목적
 **언어 상대성(Linguistic Relativity) 이론을 바탕으로, 이중언어 화자가 사용하는 언어에 따라 인지 패러다임이 어떻게 변화하며, 이것이 AI 에이전트와의 상호작용(음성 패턴, 감성, 인지적 평가)에 어떤 영향을 주는지 규명**
@@ -20,19 +24,6 @@ icon: lucide/languages
 - **턴테이킹(Turn-taking) 분석**: Inter-pausal Unit(IPU) 분석을 통한 상호 중단(Interruption) 빈도 계산
 - **감성 분석(Sentiment Analysis)**: VADER 및 한국어 전용 감성 사전을 활용한 발화 긍정/부정 수치화
 
-```python title="Speech Sentiment Analysis (Lexical Parsing)"
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-
-def analyze_sentiment(text, lang='en'):
-    """
-    발화 텍스트의 감성 점수(Polarity) 산출
-    """
-    analyzer = SentimentIntensityAnalyzer()
-    # 한국어의 경우 사전 검증된 번역/사전 모델 적용 (Park et al., 2020)
-    score = analyzer.polarity_scores(text)
-    return score['compound'] # -1(부정) ~ +1(긍정)
-```
-
 
 ## 데이터셋
 
@@ -43,14 +34,11 @@ def analyze_sentiment(text, lang='en'):
 | 분석 데이터  | 30분간의 게임 세션 녹화본(OBS), 실시간 음성 스크립트, HRI 설문 데이터 |
 | 분석 도구    | Python, R, Microsoft Azure ASR, VADER Sentiment                      |
 
-
 | 분석 지표 (Metric) | 설명 | 주요 발견 (Key Finding) |
 |--------------------|------|-------------------------|
 | **Utterance Count**| 발화 횟수 | 이중언어자는 한국어 사용 시에도 영어 화자와 유사한 발화 패턴을 보임 |
 | **Interruption %** | 대화 중단 비율 | 이중언어 상황에서 AI의 유저 발화 중단 빈도가 유의미하게 변화함 |
 | **Godspeed Scale** | 로봇 인지 평가 | 이중언어자는 단일언어자보다 AI의 지능/호감도를 더 낮게 평가하는 경향 |
-
-
 
 ## 주요 연구 결과
 <div align="center">

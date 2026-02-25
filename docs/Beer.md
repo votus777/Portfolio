@@ -1,9 +1,15 @@
 ---
 icon: lucide/beer
 --- 
+
 # Beer 
 
 ## 맥주 화학-관능 공동 임베딩 모델 (Joint Embedding Model)
+
+## **TL;DT:**  
+> 맥주 화학 조성(ABV 등 수치)과 관능 특성(맛, 향, 질감 등)을 하나의 잠재 공간에 공동 임베딩하는 Dual AutoEncoder 모델 개발.  
+> 양방향으로, (1) 화학 데이터로 맥주 맛/향을 예측하거나, (2) 원하는 맛/향을 주면 필요한 화학 조성을 역추론 가능  
+> ONNX로 최적화해 웹에서도 실시간 탐색/시뮬레이션이 가능. 벨기에 맥주 250종 데이터 사용, R² ≈ 0.8
 
 ## 핵심 목적
 **화학적 조성 ↔ 관능 특성(taste_, aroma_, palate_) 양방향 변환 가능한 공동 잠재 공간 생성**
@@ -160,5 +166,4 @@ def compute_joint_loss_beer(x, y, z_x, z_y, x_recon, y_recon, x_from_y, y_from_x
 
 ## 참고 문헌
 > Schreurs, Michiel, et al. "Predicting and improving complex beer flavor through machine learning." Nature Communications 15.1 (2024): 2368.
-
 
