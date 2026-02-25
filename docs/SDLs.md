@@ -151,8 +151,6 @@ Dataset 전체를 효율적으로 관리·연결하고, LLM·AI가 활용하기 
 - 전자코(e-nose)/전자혀(e-tongue)
 - 로봇팔
 
-https://www.selectscience.net/product/ot-2
-
 
 sample Design
 
