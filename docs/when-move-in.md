@@ -9,7 +9,7 @@ icon: lucide/house
 
 본 프로젝트는 공공임대 아파트의 신규 계약 데이터를 기반으로 합니다.
 
-*   **데이터 출처**: 공공데이터 포털 및 관련 기관 내부 데이터
+*   **데이터 출처**: 공공데이터포털 API
 *   **주요 엔티티**: 아파트 단지명 및 전용면적의 조합 (`uid` = `aptNm` + `excluUseAr`)
 *   **관측 단위**: 아파트 단지·면적 유형별 월 단위 계약 정보
 *   **주요 데이터 필드**:
@@ -23,7 +23,7 @@ icon: lucide/house
 
 ## 2. 데이터 변환 및 최종 형태 (Feature Engineering)
 
-희소성(Sparsity)이 높은 계약 데이터의 특성을 극복하기 위해 다각도의 피처 엔지니어링을 수행하였습니다.
+희소성(Sparsity)이 높은 계약 데이터의 특성을 극복하기 위해 다각도의 피처 엔지니어링을 수행
 
 ### 데이터 전처리 및 피벗
 - **Zero-Filling (Full Dataset)**: 계약이 발생하지 않은 달(0건)을 모두 포함하여 실제 시장 분포를 반영한 시계열 패널 데이터로 변환. (v1의 Active-only 학습 방식의 한계 극복)
@@ -40,7 +40,7 @@ icon: lucide/house
 
 ## 3. 분석 단계: 계층형 3단계 파이프라인 (Modeling Architecture)
 
-데이터의 불균형(80% 이상의 월이 0건)을 해결하기 위해 단계별로 모델을 구성하였습니다.
+데이터의 불균형(80% 이상의 월이 0건)을 해결하기 위해 단계별로 모델을 구성
 
 ```mermaid
 graph TD
@@ -63,6 +63,10 @@ graph TD
 - **기준**: MAD(Median Absolute Deviation) 기반의 이상치 탐지 로직 (2.5배 이상).
 - **핵심 인사이트**: **Entropy Precursor(엔트로피 전조 현상)** 발견. 폭증 1~3개월 전부터 Shannon Entropy가 유의미하게 상승하는 신호를 포착하여 모델의 예측력을 높임.
 
+![feature-engineering-pipeline](https://github.com/user-attachments/assets/4947ec65-fa3d-41dc-b869-afd5a9557692)
+<sub align="center">※ 엔트로피를 활용한 폭증 예측 실험</sub>
+
+
 ### Stage 3: 세부 건수 회귀 (Regression)
 - **구조**: 분류 결과에 따른 이중 회귀 모델링.
     - **3-A (비폭증)**: Poisson 또는 Tweedie 손실 함수를 사용하여 소규모 카운트 데이터 예측에 최적화된 LightGBM.
@@ -72,7 +76,7 @@ graph TD
 
 ## 4. 최종 결과 및 지표 (Final Performance Metrics)
 
-본 프로젝트의 계층형 파이프라인(v2)은 기존 단일 모델 및 v1 대비 모든 핵심 지표에서 월등한 성능 향상을 달성하였습니다.
+본 프로젝트의 계층형 파이프라인(v2)은 기존 단일 모델 및 v1 대비 모든 핵심 지표에서 성능 향상을 달성
 
 ### 최종 핵심 성과 요약
 - **계약 발생 감지율 (Recall)**: **78.1%** (실제 계약 발생의 약 4/5를 사전에 포착)
